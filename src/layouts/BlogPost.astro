@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,6 +19,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				width: calc(100% - 2em);
 				max-width: 100%;
 				margin: 0;
+				padding-top: 2em;
 			}
 			.hero-image {
 				width: 100%;
@@ -48,6 +49,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.date {
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.75em;
+				flex-wrap: wrap;
+			}
+			.tags {
+				display: flex;
+				gap: 0.5em;
+				flex-wrap: wrap;
+			}
+			.tag {
+				display: inline-block;
+				padding: 0.25em 0.75em;
+				background: rgb(var(--gray-light));
+				border-radius: 4px;
+				font-size: 0.85em;
+				color: rgb(var(--gray-dark));
 			}
 			.last-updated-on {
 				font-style: italic;
@@ -66,6 +85,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					<div class="title">
 						<div class="date">
 							<FormattedDate date={pubDate} />
+							{tags && tags.length > 0 && (
+								<span class="tags">
+									{tags.map((tag) => (
+										<span class="tag">{tag}</span>
+									))}
+								</span>
+							)}
 							{
 								updatedDate && (
 									<div class="last-updated-on">

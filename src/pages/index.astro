@@ -9,12 +9,40 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				text-align: center;
+				padding-top: 2em;
+			}
+			h3 {
+				margin-bottom: 0.5em;
+			}
+			.subtitle {
+				margin-bottom: 2em;
+				color: rgb(var(--gray-dark));
+			}
+			.content {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: 0 auto;
+				text-align: left;
+			}
+			.content p {
+				line-height: 1.8;
+				color: rgb(var(--gray-dark));
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Pan's blog</h1>
-			<p class="subtitle">记录思考、创业、产品与投资</p>
+			<h3>Pan'数字花园</h3>
+			<p class="subtitle">记录思考、创业、产品与投资的数字花园</p>
+			<div class="content">
+				<p>
+					花园承载着人们对于精神愉悦的期望，在花园里，你可以看到栩栩如生的盆栽、如画般的绿植鲜花、充满活力的人群，在这里你可以忘记时间的流逝，静静享受这一切；而我也希望打造一座属于自己的花园，走进自己的想法，和多个时空的自己或者别人进行交流；
+				</p>
+			</div>
 		</main>
 		<Footer />
 	</body>
